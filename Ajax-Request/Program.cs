@@ -8,8 +8,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-builder.Services.AddCors(options => options.AddPolicy("Policy", builder => {
+builder.Services.AddCors(options => options.AddPolicy("CorsName", builder => {
     builder.AllowAnyOrigin();
+
+    // WithOrigin : Apiye ulaþmasý gereken uygulamanýn web adresi yazýlýr. Bu durumda sadece izin verilen uygulama web apiye eriþir.
+    // AllowAnyOrigin : Api tüm gelen isteklere origin gözetmeksizin izin verir.
+    // AllowAnyMethod : Metot bazýnda kýsýtlama yapýlar. 
+    // AllowAnyHeader : Header bazýnda kýsýtlama
 
 }));
 
@@ -26,7 +31,9 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.UseCors("Policy");
+
+// Yapýlan cors tanýmýnýn sisteme tanýtýlmasý
+app.UseCors("CorsName");
 
 app.Run();
 

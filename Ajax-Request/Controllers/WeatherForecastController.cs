@@ -32,8 +32,6 @@ namespace Ajax_Request.Controllers
         [HttpPost]
         public IActionResult Post(WeatherForecast data)
         {
-
-
             return Ok();
         }
        

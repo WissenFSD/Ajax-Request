@@ -10,6 +10,11 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddCors(options => options.AddPolicy("CorsName", builder => {
     builder.AllowAnyOrigin();
+    builder.AllowAnyHeader();
+    builder.AllowAnyMethod();
+
+
+   
 
     // WithOrigin : Apiye ulaþmasý gereken uygulamanýn web adresi yazýlýr. Bu durumda sadece izin verilen uygulama web apiye eriþir.
     // AllowAnyOrigin : Api tüm gelen isteklere origin gözetmeksizin izin verir.
